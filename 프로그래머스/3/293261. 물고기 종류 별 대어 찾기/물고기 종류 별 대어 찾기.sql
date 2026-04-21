@@ -1,0 +1,7 @@
+-- 코드를 작성해주세요
+SELECT ID, FISH_NAME , LENGTH
+FROM FISH_INFO o , FISH_NAME_INFO n 
+WHERE (o.FISH_TYPE,o.LENGTH) IN (SELECT FISH_TYPE,MAX(LENGTH)
+                 FROM FISH_INFO
+                 GROUP BY FISH_TYPE
+                 ) AND o.FISH_TYPE = n.FISH_TYPE;
